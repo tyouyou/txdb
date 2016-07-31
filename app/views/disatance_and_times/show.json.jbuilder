@@ -1,0 +1,1 @@
+json.partial! "disatance_and_times/disatance_and_time", disatance_and_time: @disatance_and_time

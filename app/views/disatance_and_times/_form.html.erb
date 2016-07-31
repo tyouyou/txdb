@@ -1,0 +1,33 @@
+<%= form_for(@disatance_and_time) do |f| %>
+  <% if @disatance_and_time.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@disatance_and_time.errors.count, "error") %> prohibited this disatance_and_time from being saved:</h2>
+
+      <ul>
+      <% @disatance_and_time.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_id %><br>
+    <%= f.number_field :start_id %>
+  </div>
+  <div class="field">
+    <%= f.label :end_id %><br>
+    <%= f.number_field :end_id %>
+  </div>
+  <div class="field">
+    <%= f.label :cost_time %><br>
+    <%= f.number_field :cost_time %>
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br>
+    <%= f.number_field :distance %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

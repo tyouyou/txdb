@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Disatance And Times</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Cost time</th>
+      <th>Distance</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @disatance_and_times.each do |disatance_and_time| %>
+      <tr>
+        <td><%= disatance_and_time.start_id %></td>
+        <td><%= disatance_and_time.end_id %></td>
+        <td><%= disatance_and_time.cost_time %></td>
+        <td><%= disatance_and_time.distance %></td>
+        <td><%= link_to 'Show', disatance_and_time %></td>
+        <td><%= link_to 'Edit', edit_disatance_and_time_path(disatance_and_time) %></td>
+        <td><%= link_to 'Destroy', disatance_and_time, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Disatance and time', new_disatance_and_time_path %>

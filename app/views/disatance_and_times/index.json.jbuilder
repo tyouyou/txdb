@@ -1,0 +1,1 @@
+json.array! @disatance_and_times, partial: 'disatance_and_times/disatance_and_time', as: :disatance_and_time
