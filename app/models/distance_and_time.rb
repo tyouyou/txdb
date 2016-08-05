@@ -1,6 +1,6 @@
 class DistanceAndTime < ActiveRecord::Base
-  belongs_to :start_address, class_name: 'Address'
-  belongs_to :end_address, class_name: 'Address'
+  belongs_to :start_address, class_name: 'Address', foreign_key: 'start_id'
+  belongs_to :end_address, class_name: 'Address', foreign_key: 'end_id'
 
   class << self
     def fetch_and_create(start_string, destination_string)
@@ -17,7 +17,6 @@ class DistanceAndTime < ActiveRecord::Base
 
       dis_time = DistanceAndTime.find_by(start_id: start.id, end_id: destination.id)
       if dis_time
-        p 'created'
         return true
       else
         dis_time = DistanceAndTime.new
@@ -71,9 +70,14 @@ class DistanceAndTime < ActiveRecord::Base
     end
 
     def parse(json_data)
-      distance = json_data['rows'][0]['elements'][0]['distance']['value']
-      duration = json_data['rows'][0]['elements'][0]['duration']['value']
-      [distance, duration]
+      begin
+        distance = json_data['rows'][0]['elements'][0]['distance']['value']
+        duration = json_data['rows'][0]['elements'][0]['duration']['value']
+        [distance, duration]
+      rescue
+        p json_data
+        [999999999, 999999999]
+      end
     end
   end
 end
