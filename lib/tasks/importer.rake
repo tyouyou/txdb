@@ -24,7 +24,7 @@ namespace :importer do
     # sample:
     # 出発時間,乗車地,乗車地の経度,乗車地の緯度,降車地,降車地の経度,降車地の緯度
     # 14:25,"日本, 〒132-0031 東京都江戸川区松島１丁目３−１１",139.8610594,35.7031413,"日本, 〒132-0022 東京都江戸川区大杉５丁目１８−１２",139.8780715,35.7104604
-    file = '/Users/zhangrong/Desktop/taxi-data/擬似データの結果/OotakuPseudoData(40).csv'
+    file = '/Users/zhangrong/Dropbox/project/taxi-data/擬似データの結果/EdogawaPseudoData(100-10).csv'
     addresses = []
     CSV.table(file).each do |row|
       start = row[1]

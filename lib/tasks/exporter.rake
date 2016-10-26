@@ -3,7 +3,7 @@ require 'csv'
 namespace :exporter do
   desc "export all"
   task run: :environment do
-    file = '/Users/zhangrong/Desktop/taxi-data/disance_and_time.csv'
+    file = '/Users/zhangrong/Dropbox/project/taxi-data/distance_and_time.csv'
     CSV.open(file, 'w') do |csv|
       csv << ['出発地', '目的地', '時間', '距離']
       DistanceAndTime.find_each do |dis_and_time|
